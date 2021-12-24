@@ -1,17 +1,20 @@
-class Solution(object):
+class Solution:
     def findPeakElement(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        i = 0 
-        iDict = {'l':10000000, 'c':10000000, }
-        j = len(nums)-1
+        start = 0
+        end = len(nums)-1
+
+        while (start < end):
+            mid = start + int((end - start) / 2)  
+            if (nums[mid] < nums[mid+1]):
+                start = mid+1
+            else:
+                end = mid
+
+        return start
         
-        while j-i >= 1:
-            print(i, j)
-            
-            
-            i += 1
-            j -= 1
-            
+        
+
+print("---------------------------------\n\n")
+s = Solution()
+print("answer: ", s.findPeakElement([1,2,3,1]), "expected: ", 2)
+print("answer: ", s.findPeakElement([1,2,1,3,5,6,4]), "expected: ", 5)

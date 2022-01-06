@@ -5,18 +5,18 @@
 
 password = "thisisbeautiful"
 vowels = {'a', 'e', 'i', 'o', 'u'}
-count = 0
+cnt = 0
 
-v_found, c_found = False, False        
-for char in password:
-	if char in vowels:
-		v_found = True
+vf, cf = False, False  #vowel found and consonant found flags
+for c in password:
+	if c in vowels:
+		vf = True
 	else:
-		c_found = True
-	if v_found and c_found:
-		count += 1
-		v_found, c_found = False, False
-# print(count)
+		cf = True
+	if cf and vf:
+		cnt += 1
+		cf = vf = False
+print(cnt)
 
 
 # ------------------ QUESTION 2: --------------------

@@ -1,6 +1,7 @@
 # my bruteforce solution passed 315 / 318 tests on LeetCode, but could have been improved by sorting the list, 
 #    having one pointer in the beginning, one directly after that, and another at the very end. Since the list is ordered, 
 #    you could adjust the left and right pointer to be closer to eachother.
+# Good explanation of more efficient solution here - https://www.youtube.com/watch?v=erEHQO0xljc
 class Solution:
     def threeSumBruteForce(self, nums):
         l = len(nums)

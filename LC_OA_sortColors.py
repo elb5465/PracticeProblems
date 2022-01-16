@@ -1,3 +1,5 @@
+# Brute force - O(2n)
+
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
         """

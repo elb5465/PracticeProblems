@@ -1,3 +1,31 @@
+# O(n) bc just while loop and min is O(2) which is negligible
+def findTotalPower_best(power):
+    l = len(power)
+    total = 0
+    pMin = MAXINT
+    pSum = 0
+
+    i = 0 
+    j = -1
+
+    while (i!=l-1):
+        if (j==l-1):
+            i += 1
+            j = i
+            pSum = 0
+            pMin = power[j]
+
+        else:
+            j += 1
+
+        pMin  = min(pMin, power[j])
+        pSum  += power[j]
+        total += pMin * pSum
+
+    return total
+
+
+# O(n^2 / 2) ??? -> Seems to run in half the for loops as the slowest bruteforce, but this still is basically O(n^2) bc of the sum and min() methods in python
 def findTotalPower(power):
     l = len(power)
     total = 0

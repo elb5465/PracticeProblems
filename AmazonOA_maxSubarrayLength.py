@@ -1,3 +1,4 @@
+# O(n) refined solution 
 def maxSubarrayLength(badges):
     l = len(badges)
     negCount = 0

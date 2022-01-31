@@ -5,6 +5,31 @@ class Solution {
         if (this.debug==true) System.out.println(someString);
     }
     
+    // O(n) == O(n) + O(n)
+    public int longestConsecutive(int[] nums) {
+        HashSet<Integer> set = new HashSet<Integer>(nums.length);
+        for (int num : nums) set.add(num);
+        
+        int maxStreak = 0;
+        
+        // looking for start of a consecutive sequence...
+        for (int n: nums){
+            // if num has no prev consecutive, then it is the start
+            if (!set.contains(n-1)){
+                int curr = n;
+                int streak = 0;
+                
+                // inc curr until not found in set
+                while (set.contains(curr)){
+                    curr ++;
+                    streak ++;
+                }
+                maxStreak = Math.max(maxStreak, streak);
+            }
+        }
+        return maxStreak;
+    }
+    
     
     //O(n logn + n) bc of sorting + loop
     public int longestConsecutive(int[] nums) {
@@ -29,30 +54,6 @@ class Solution {
 
 
 
-    // O(n)
-    public int longestConsecutive(int[] nums) {
-        HashSet<Integer> set = new HashSet<Integer>(nums.length);
-        for (int num : nums) set.add(num);
-        
-        int maxStreak = 0;
-        
-        for (int n : nums){
-            if (!set.contains(n-1)) {
-                int curr = n;
-                int streak = 0;
-                
-                while (set.contains(curr)){
-                    curr ++;
-                    streak ++;
-                }
-                
-            maxStreak = Math.max(maxStreak, streak);
-            }
-        }
-        
-        return maxStreak;
-    }
-    
         
     // O(n logn?)
     public int longestConsecutive(int[] nums) {

@@ -3,6 +3,8 @@ boolean solution(int[] a) {
     int[] b = new int[l];
     int j = l-1;
     
+    if (l<=1) return true;
+    
     for (int i=0; i<l; i++){
         if (i%2==0)
             b[i] = a[i/2];
@@ -12,14 +14,14 @@ boolean solution(int[] a) {
         }
     }
     
-    int prev = -100000;
+    int prev = Integer.MIN_VALUE;
     for (int n : b){
         if (n <= prev){
-            System.out.printf("n:%d < prev:%d%n", n, prev);
+            //System.out.printf("n:%d < prev:%d%n", n, prev);
             return false;
         }
         prev = n;
-        System.out.printf("%d, ", n);
+        //System.out.printf("%d, ", n);
     }
     
     return true;

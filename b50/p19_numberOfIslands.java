@@ -5,7 +5,7 @@ class Solution {
         int numIslands = 0;
         
         // edge case for empty grid
-        if (rows == 0) return 0;
+        if (r == 0) return 0;
         
         // go through each cell and do dfs when you find a new island,
         // it will recursively mark all connected entries as '2', meaning 'visited'
